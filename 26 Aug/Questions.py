@@ -31,9 +31,14 @@ def sixthPattern(n):
 	for i in range(1,n+1):
 		print(str(i)*n)
 
+def seventhPattern(n):
+	for i in range(n,0,-1):
+		print("*"*i)
+
+
 while True:
 	m = int(input("Enter the pattern number you want: "))
-	n = int(input("Enter the n: "))
+	n = int(input("Enter the Number: "))
 	if m == 1:
 		firstPattern(n)
 	elif m == 2:
@@ -46,6 +51,8 @@ while True:
 		fifthPattern(n)
 	elif m == 6:
 		sixthPattern(n)
+	elif m == 7:
+		seventhPattern(n)
 	else:
 		print("Bye Bye...")
 		break
