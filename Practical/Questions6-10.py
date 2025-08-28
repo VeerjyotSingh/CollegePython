@@ -34,11 +34,15 @@ def indicesOfString(mainString,subString):
 	a. 'for' loop
 	b. list comprehension"""
 
-def cubeEvenNumber(list):
+def cubeEvenNumber(list):	
 	newList = []
 	for x in list:
-		if type(x) is int and x%2 == 0:
-			newList.append(x**3)
+		try:
+			x = int(x)
+			if x%2 == 0:
+				newList.append(x**3)
+		except:
+			continue
 	return newList
 			
 """9.Write a program to read a file and
@@ -98,9 +102,12 @@ def seperateOddEvenLines(filepath):
 	file2.close()
 	file.close()
 
-
-
-	
+#10. Write a function that prints a dictionary where the keys are numbers between 1 and 5 and the values are cubes of the keys.																													
+def printDictionary():
+	dict = {}
+	for i in range(1,6):
+		dict[i] = i**3
+	return dict
 
 
 if __name__ == "__main__":
@@ -121,7 +128,10 @@ if __name__ == "__main__":
 			print(indicesOfString(mainString,subString))
 		
 		elif x == 8:
-			inputList = list(input("Please enter the list: "))
+			inputList = input("Please enter the list: ")
+			inputList = inputList.strip("[")
+			inputList = inputList.strip("]")
+			inputList = inputList.split(",")
 			print(cubeEvenNumber(inputList))
 		
 		elif x == 9:
@@ -134,6 +144,11 @@ if __name__ == "__main__":
 			print("Dictionary of Characters is: ",countCharacter(filepath)) 
 			print("Words in reverse Order are as follow:- ", reverseWords(filepath))
 			seperateOddEvenLines(filepath)
+		
+		elif x == 10:
+			print("The required Dictionary is:- ")
+			print(printDictionary())
+
 		else:
 			print("bye bye..")
 			break
