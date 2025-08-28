@@ -7,3 +7,6 @@
 
 - **19 August 2025**  
   Topics Covered: Conditional Statements (if, else, elif)
+
+- **20 August 2025**  
+  Topics Covered: For loop (using range function)
