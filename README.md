@@ -4,3 +4,6 @@
 
 - **14 August 2025**  
   Topics Covered: Functions (with return and arguments), variables
+
+- **19 August 2025**  
+  Topics Covered: Conditional Statements (if, else, elif)
