@@ -10,3 +10,6 @@
 
 - **20 August 2025**  
   Topics Covered: For loop (using range function)
+
+- **26 August 2025**  
+  Topics Covered: Nested For loop
