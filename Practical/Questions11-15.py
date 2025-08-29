@@ -1,3 +1,5 @@
+from sys import exit
+
 """11. Consider a tuple t1=(1, 2, 5, 7, 9, 2, 4, 6, 8, 10). Write a program to perform following operations:
 	a. Print half the values of the tuple in one line and the other half in the next line.
 	b. Print another tuple whose values are even numbers in the given tuple.
@@ -32,8 +34,50 @@ def minMaxTuple(t):
 			continue
 	return min(l),max(l)
 	
+"""12. Define a class Employee that stores information about employees in the company. The class should contain the following:
+	(i) data members- count (to keep a record of all the objects being created for this class) and for every employee: an employee number, Name, Dept, Basic, DA and HRA.
+	(ii) function members:
+		a. __init__ method to initialize and/or update the members. Add statements to ensure that the program is terminated if any of Basic, DA and HRA is set to a negative value.
+		b. function salary, that returns salary as the sum of Basic, DA and HRA.
+		c. __del__ function to decrease the number of objects created for the class.
+		d. __str __ function to display the details of an employee along with the salary of an employee in a proper format."""
+
+class Employee():
+	count = 0 #this will keep a record of number of objects being created
+	def __init__(self,empNum,name,dept,basic,da,hra):
+		if basic < 0 or da < 0 or hra < 0:
+			exit(1) #exit with code 1 (which means some error has occured)
+		print(f"A new Employee object named {empNum} is being created")
+		self.empNum = empNum
+		self.name = name
+		self.dept = dept
+		self.basic = basic
+		self.da = da
+		self.hra  = hra
+		
+		Employee.count += 1 #updating count variable to reflect creation of new object
+	
+	def __del__(self):
+		Employee.count -=1
+		print("The employee has been layed off")
+
+	def __str__(self):
+		return (
+            		f"\nEmployee No : {self.empNum}\n"
+            		f"Name        : {self.name}\n"
+            		f"Department  : {self.dept}\n"
+            		f"Basic       : {self.basic}\n"
+            		f"DA          : {self.da}\n"
+            		f"HRA         : {self.hra}\n"
+            		f"Total Salary: {self.salary()}"
+        )	
+
+	def salary(self):
+		return self.basic + self.da + self.hra
+
 
 if __name__ == "__main__":
+	empList = []
 	while True:
 		print("","-"*30,"",sep = "\n")
 		print("Which Question do you want solution to?")
@@ -61,6 +105,17 @@ if __name__ == "__main__":
 			min, max = minMaxTuple(t)
 			print("Minimum value from the tuple is",min)
 			print("Maximum value from the tuple is",max)
+	
+		elif x == 12:
+			empNum = int(input("Please enter the employee Number: "))
+			name = input("Please enter the employee name: ")
+			dept = input("Please input the department: ")
+			basic = float(input("Please input the basic salary: "))
+			da = float(input("Please input the DA: "))
+			hra  = float(input("Please input the HRA: "))
+			emp = Employee(empNum,name,dept,basic,da,hra)
+			empList.append(emp)
+			print(emp)
 		else:
 			print("bye bye.")
 			break
