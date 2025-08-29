@@ -76,8 +76,24 @@ class Employee():
 		return self.basic + self.da + self.hra
 
 
+#13. Write a program to define a class "2DPoint" with coordinates x and y as attributes. Create relevant methods and print the objects. Also define a method distance to calculate the distance between any two point objects.
+
+class TwoDPoint:
+	def __init__(self,x,y):
+		self.x = x
+		self.y = y
+	
+	def __str__(self):
+		return (f"Coordinates are ({self.x},{self.y})")
+	
+	def distance(self,Point2):
+		"""Distance formula is sqrt((x2-x1)^2 + (y2-y1)^2)"""
+		return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2)**0.5
+
+	
 if __name__ == "__main__":
 	empList = []
+	twoDPointList = [TwoDPoint(0,0)]
 	while True:
 		print("","-"*30,"",sep = "\n")
 		print("Which Question do you want solution to?")
@@ -116,6 +132,14 @@ if __name__ == "__main__":
 			emp = Employee(empNum,name,dept,basic,da,hra)
 			empList.append(emp)
 			print(emp)
+		
+		elif x == 13:
+			x = float(input("Enter the x coordinate: "))
+			y = float(input("Enter the y coordinate: "))
+			point = TwoDPoint(x,y)
+			print(point)
+			twoDPointList.append(point)			
+			print("Distance from Origin is",point.distance(twoDPointList[0]))
 		else:
 			print("bye bye.")
 			break
