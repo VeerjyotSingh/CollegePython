@@ -87,13 +87,42 @@ class TwoDPoint:
 		return (f"Coordinates are ({self.x},{self.y})")
 	
 	def distance(self,Point2):
-		"""Distance formula is sqrt((x2-x1)^2 + (y2-y1)^2)"""
 		return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2)**0.5
 
+
+#14. Inherit the above class to create a "3Dpoint" with additional attribute z. Override the method defined in "2DPoint" class , to calculate distance between two points of the "3DPoint" class.
+
+class ThreeDPoint(TwoDPoint):
+	def __init__(self,x,y,z):
+		super().__init__(x,y)
+		self.z = z
 	
+	def __str__(self):
+		return (f"Coordinates are ({self.x},{self.y},{self.z})")
+
+	def distance(self,Point2):
+                return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2 + (Point2.z - self.z)**2)**0.5
+		
+
+#15. Write a program to accept a name from a user. Raise and handle appropriate exception(s) if the text entered by the user contains digits and/or special characters.
+
+def askForName():
+	# will ask the user to enter name again untill correct name is not entered
+	name = ""
+	while True:
+		name = input("Please input a valid name: ")
+		if name.isalpha():
+			break
+		else:
+			print("please input a name without any special characters or digits")
+	return name
+	
+
 if __name__ == "__main__":
 	empList = []
 	twoDPointList = [TwoDPoint(0,0)]
+	threeDPointList = [ThreeDPoint(0,0,0)]
+
 	while True:
 		print("","-"*30,"",sep = "\n")
 		print("Which Question do you want solution to?")
@@ -140,6 +169,23 @@ if __name__ == "__main__":
 			print(point)
 			twoDPointList.append(point)			
 			print("Distance from Origin is",point.distance(twoDPointList[0]))
+		
+		elif x == 14:
+			x = float(input("Enter the x coordinate: "))
+			y = float(input("Enter the y coordinate: "))
+			z = float(input("Enter the z coordinate: "))
+			point = ThreeDPoint(x,y,z)
+			print(point)
+			threeDPointList.append(point)
+			print("Distance from Origin is",point.distance(threeDPointList[0]))
+		
+		elif x == 15:
+			name = askForName()
+			print(f"Your name is {name}")
+		
 		else:
 			print("bye bye.")
 			break
+
+
+
