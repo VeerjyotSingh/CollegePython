@@ -62,10 +62,10 @@ def firstnPrimeNumbers(n):
 def pyramid(n,reverse = False):
 	if not reverse:
 		for i in range(1,n+1):
-			print("*"*i)
+			print(" "*(n-i),"*"*((2*i)-1),)		
 	else:
 		for i in range(n,0,-1):
-			print("*"*i)
+			print(" "*(n-i),"*"*((2*i)-1),)
 
 """4. Write a program that accepts a character and performs the following:
 	a. print whether the character is a letter or numeric digit or a special character.
