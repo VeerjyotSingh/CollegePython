@@ -32,12 +32,15 @@ def rootsOfQuadratic():
 def isPrime(n):
 	if n <= 1:
 		return False
+	elif n == 2:
+		return True
+	elif n%2 == 0:
+		return False
 	else:
-		prime = True
-		for i in range(2,n):
+		for i in range(3,((int(n**0.5))+1),2):
 			if n%i == 0:
-				prime = False
-		return prime
+				return False
+		return True
 
 def allPrimeTill(n):
 	primeList = []
@@ -62,10 +65,10 @@ def firstnPrimeNumbers(n):
 def pyramid(n,reverse = False):
 	if not reverse:
 		for i in range(1,n+1):
-			print(" "*(n-i),"*"*((2*i)-1),)		
+			print(" "*(n-i),"*"*((2*i)-1))		
 	else:
 		for i in range(n,0,-1):
-			print(" "*(n-i),"*"*((2*i)-1),)
+			print(" "*(n-i),"*"*((2*i)-1))
 
 """4. Write a program that accepts a character and performs the following:
 	a. print whether the character is a letter or numeric digit or a special character.
