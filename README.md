@@ -14,5 +14,5 @@
 - **26 August 2025**  
   Topics Covered: Nested For loop
 
-- **6 September 2025**
+- **6 September 2025**  
   Topics Covered: List and it's built in functions
