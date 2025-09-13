@@ -35,15 +35,14 @@ def indicesOfString(mainString,subString):
 	b. list comprehension"""
 
 def cubeEvenNumber(list):	
-	newList = []
+	intList = []
 	for x in list:
 		try:
 			x = int(x)
-			if x%2 == 0:
-				newList.append(x**3)
+			intList.append(x)
 		except:
 			continue
-	return newList
+	return [i**3 for i in intList if i%2==0]
 			
 """9.Write a program to read a file and
 	a. Print the total number of characters, words and lines in the file.
