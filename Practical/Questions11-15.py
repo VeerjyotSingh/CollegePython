@@ -63,14 +63,14 @@ class Employee():
 
 	def __str__(self):
 		return (
-            		f"\nEmployee No : {self.empNum}\n"
-            		f"Name        : {self.name}\n"
-            		f"Department  : {self.dept}\n"
-            		f"Basic       : {self.basic}\n"
-            		f"DA          : {self.da}\n"
-            		f"HRA         : {self.hra}\n"
-            		f"Total Salary: {self.salary()}"
-        )	
+					f"\nEmployee No : {self.empNum}\n"
+					f"Name        : {self.name}\n"
+					f"Department  : {self.dept}\n"
+					f"Basic       : {self.basic}\n"
+					f"DA          : {self.da}\n"
+					f"HRA         : {self.hra}\n"
+					f"Total Salary: {self.salary()}"
+		)
 
 	def salary(self):
 		return self.basic + self.da + self.hra
@@ -79,15 +79,15 @@ class Employee():
 #13. Write a program to define a class "2DPoint" with coordinates x and y as attributes. Create relevant methods and print the objects. Also define a method distance to calculate the distance between any two point objects.
 
 class TwoDPoint:
-	def __init__(self,x,y):
+	def __init__(self, x, y):
 		self.x = x
 		self.y = y
-	
+
 	def __str__(self):
 		return (f"Coordinates are ({self.x},{self.y})")
-	
-	def distance(self,Point2):
-		return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2)**0.5
+
+	def distance(self, Point2):
+		return ((Point2.x - self.x) ** 2 + (Point2.y - self.y) ** 2) ** 0.5
 
 
 #14. Inherit the above class to create a "3Dpoint" with additional attribute z. Override the method defined in "2DPoint" class , to calculate distance between two points of the "3DPoint" class.
@@ -101,14 +101,14 @@ class ThreeDPoint(TwoDPoint):
 		return (f"Coordinates are ({self.x},{self.y},{self.z})")
 
 	def distance(self,Point2):
-                return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2 + (Point2.z - self.z)**2)**0.5
+				return ((Point2.x - self.x)**2 + (Point2.y - self.y)**2 + (Point2.z - self.z)**2)**0.5
 		
 
 #15. Write a program to accept a name from a user. Raise and handle appropriate exception(s) if the text entered by the user contains digits and/or special characters.
 
 def askForName():
-	# will ask the user to enter name again untill correct name is not entered
-	name = ""
+# will ask the user to enter name again untill correct name is not entered
+	name=""
 	while True:
 		name = input("Please input a valid name: ")
 		if name.isalpha():

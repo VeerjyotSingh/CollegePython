@@ -1,5 +1,3 @@
-from math import sqrt
-
 #Q1. Write a program to find the roots of a quadratic equation.
 def rootsOfQuadratic():
 	print("The following program requires you to input coefficient of varaibles")
@@ -17,8 +15,8 @@ def rootsOfQuadratic():
 		print("	",r2)
 	elif d >= 0 :
 		print("The following equation has real roots")
-		r1 = (-b+(sqrt(d)))/(2*a)
-		r2 = (-b-(sqrt(d)))/(2*a)
+		r1 = (-b+((d)**0.5))/(2*a)
+		r2 = (-b-((d)**0.5))/(2*a)
 		print("Roots are:- ")
 		print("	",r1)
 		print("	",r2)
@@ -29,7 +27,7 @@ def rootsOfQuadratic():
 	c. Generate first ‘n’ prime numbers
 	This program may be done using functions."""
 
-def isPrime(n):
+def isPrime(n,primeList = []):
 	if n <= 1:
 		return False
 	elif n == 2:
@@ -37,15 +35,24 @@ def isPrime(n):
 	elif n%2 == 0:
 		return False
 	else:
-		for i in range(3,((int(n**0.5))+1),2):
-			if n%i == 0:
-				return False
+		if primeList:
+			for p in primeList:
+				if p * p > n:
+					break
+				if n % p == 0:
+					return False
+			return True
+		else:
+			for i in range(3,((int(n**0.5))+1),2):
+				if n%i == 0:
+					return False
+
 		return True
 
 def allPrimeTill(n):
 	primeList = []
 	for i in range(2,n+1):
-		if isPrime(i):
+		if isPrime(i,primeList):
 			primeList.append(i)
 	return primeList
 
@@ -53,7 +60,7 @@ def firstnPrimeNumbers(n):
 	primeList = []
 	m = 2	
 	while True:
-		if isPrime(m):
+		if isPrime(m,primeList):
 			primeList.append(m)
 		if len(primeList) == n:
 			break
