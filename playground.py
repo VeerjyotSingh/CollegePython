@@ -1,35 +1,20 @@
-import time
-def isPrime(n,primeList = []):
-	if n <= 1:
-		return False
-	elif n == 2:
-		return True
-	elif n%2 == 0:
-		return False
-	else:
-		if primeList:
-			for p in primeList:
-				if p * p > n:
-					break
-				if n % p == 0:
-					return False
-			return True
-		else:
-			for i in range(3,((int(n**0.5))+1),2):
-				if n%i == 0:
-					return False
+class Numbers():
+    def __init__(self,x,y):
+        print("number is",x,"+",y,"i")
+        self.x = x
+        self.y = y
+        
+    def __add__(self,Number2):
+        NewNumber = Numbers(self.x + Number2.x,self.y + Number2.y)
+        return NewNumber
+    
+    def __mul__(self,Number2):
+        NewNumber = Numbers(self.x * Number2.x,self.y * Number2.y)
+        return NewNumber
+    
+n1 = Numbers(5,6)
+n2 = Numbers(7,8)
+n3 = n1 + n2
+n4 = n1*n2
 
-		return True
-
-def allPrimeTill(n):
-	primeList = []
-	for i in range(2,n+1):
-		if isPrime(i,primeList):
-			primeList.append(i)
-	return primeList
-start = time.time()
-allPrimeTill(10000)
-end = time.time()
-print(end - start)
-
-""""""
+        
